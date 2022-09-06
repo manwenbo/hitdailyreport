@@ -87,5 +87,5 @@ pyinstaller -F ./DailyReport.py
 第一次需要大家手动每日上报的时候填写一下，后面应当会保持不变。
 
 # 重点说明
-本项目基本照搬，仅有少量修改，源地址
+本项目参考源地址
 https://github.com/ChengHuiWan-cy/HITDailyReport.git
