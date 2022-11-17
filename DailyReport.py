@@ -9,6 +9,8 @@ from email.mime.image import MIMEImage
 from email.mime.text import MIMEText
 from email.header import Header
 import sys
+import os
+import updateedge
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service
 
@@ -40,7 +42,13 @@ if current_date==lastDate:
     sys.exit()
 # service = Service(executable_path=driver_url)
 # driver = webdriver.Edge(service=service)
-driver = webdriver.Edge(executable_path=driver_url)
+# 自动更新驱动
+try:
+    driver = webdriver.Edge(executable_path=driver_url)
+except:
+    source_dir = os.path.abspath('.') + "/"
+    up = updateedge.UpdateEdge(source_dir)
+    driver = webdriver.Edge(executable_path=driver_url)
 driver.find_element_by_xpath
 # driver.find_element(By.XPATH, "value")
 # 访问网址
@@ -116,7 +124,7 @@ if needGoOutRequst=='需要出校申请':
     #选择出校日期
     driver.find_element_by_xpath('//*[@id="rqlscx"]').click()
     time.sleep(1)
-    driver.find_element_by_xpath('/html/body/div[10]/div[2]/div[1]/a[2]').click()
+    driver.find_element_by_xpath('/html/body/div[11]/div[2]/div[1]/a[2]').click()
     time.sleep(0.5)
     # driver.find_element_by_xpath('//*[@id="cxlx01"]').click()
     # time.sleep(1)
